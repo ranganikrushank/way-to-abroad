@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Frequently Asked Questions for Indian students pursuing MBBS/MD abroad. Clear answers on NMC compliance, NEET requirements, fees, safety, and career pathways.">
+    <meta name="theme-color" content="#0A2540">
+    <title>FAQs | Way to Abroad</title>
+    <link href="/assets/logo.png" rel="icon" sizes="16x16">
+    <link href="/assets/logo.png" rel="icon" sizes="32x32">
+    <link href="/assets/logo.png" rel="icon" sizes="48x48">
+    <link href="/assets/logo.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="/assets/logo.png" rel="icon" type="image/png" sizes="192x192">
+    <link href="/assets/logo.png" rel="icon" type="image/png" sizes="256x256">
+    <style>
+        /* ================= VARIABLES & RESET ================= */
+        :root {
+            --primary: #0A2540;
+            --primary-light: #1A3A5C;
+            --accent: #007BFF;
+            --accent-hover: #0056b3;
+            --success: #28A745;
+            --text: #2D3748;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --border: #E2E8F0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 10px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-main: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: inherit;
+        }
+
+        input {
+            font-family: inherit;
+        }
+
+        /* ================= UTILITY ================= */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 65ch;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.5rem;
+            font-weight: 600;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            font-size: 1rem;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: var(--white);
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-center {
+            align-items: center;
+            justify-content: center;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* ================= HEADER ================= */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 800;
+            font-size: 1.35rem;
+            color: var(--primary);
+        }
+
+        .logo img {
+            height: 36px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--primary-light);
+            padding: 0.5rem;
+            border-radius: 6px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent);
+            background: #f0f7ff;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .dropdown-btn::after {
+            content: "▼";
+            font-size: 0.65rem;
+            transition: transform 0.2s;
+        }
+
+        .dropdown:hover .dropdown-btn::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            min-width: 180px;
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.6rem 1rem;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--bg-light);
+            color: var(--accent);
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            padding: 0.5rem;
+        }
+
+        /* ================= HERO & SEARCH ================= */
+        .hero {
+            padding: 4rem 0 2.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            max-width: 60ch;
+            margin: 0 auto 2rem;
+        }
+
+        .search-box {
+            max-width: 650px;
+            margin: 0 auto;
+            position: relative;
+            background: var(--bg-white);
+            border-radius: 50px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .search-box:focus-within {
+            border-color: var(--accent);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            padding: 0.25rem 0.75rem;
+            color: var(--text);
+            background: transparent;
+        }
+
+        .search-icon {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-right: 0.5rem;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* ================= FAQ CATEGORIES ================= */
+        .faq-wrapper {
+            padding: 0 0 4rem;
+        }
+
+        .category-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .faq-list {
+            display: grid;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow);
+        }
+
+        .faq-item.active {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.25rem;
+            text-align: left;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 400;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+            color: var(--primary);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background: var(--bg-light);
+            padding: 0 1.25rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 1.25rem 1.5rem;
+        }
+
+        .faq-answer p {
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .faq-answer ul {
+            margin-top: 0.5rem;
+            margin-left: 1.25rem;
+            list-style: disc;
+            color: var(--text);
+        }
+
+        .faq-answer li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* ================= CTA ================= */
+        .cta {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .cta h2 {
+            font-size: clamp(1.8rem, 4vw, 2.25rem);
+            margin-bottom: 0.75rem;
+        }
+
+        .cta p {
+            opacity: 0.85;
+            max-width: 60ch;
+            margin: 0 auto 1.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--bg-white);
+                flex-direction: column;
+                padding: 1.5rem;
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                background: transparent;
+                padding-left: 1rem;
+                display: none;
+            }
+
+            .dropdown.open .dropdown-menu {
+                display: block;
+            }
+
+            .hero {
+                padding: 3rem 0 2rem;
+            }
+
+            .section {
+                padding: 2.5rem 0;
+            }
+
+            .faq-question {
+                padding: 1rem;
+                font-size: 0.98rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="/assets/logo.png" alt="Way to Abroad Logo">
+            </a>
+            <button class="mobile-toggle" aria-label="Toggle navigation" id="navToggle">☰</button>
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <div class="dropdown">
+                    <a href="#" class="nav-link dropdown-btn" aria-haspopup="true" aria-expanded="false">Countries</a>
+                    <div class="dropdown-menu" role="menu">
+                        <a href="/countries/belarus.html">Belarus</a>
+                        <a href="/countries/russia.html">Russia</a>
+                        <a href="/countries/georgia.html">Georgia</a>
+                        <a href="/countries/kazakhstan.html">Kazakhstan</a>
+                        <a href="/countries/kyrgyzstan.html">Kyrgyzstan</a>
+                        <a href="/countries/uzbek.html">Uzbekistan</a>
+                    </div>
+                </div>
+                <a href="gallery.html" class="nav-link">Gallery</a>
+                <a href="gallery.html#testimonials" class="nav-link">Testimonials</a>
+                <a href="faq.html" class="nav-link active">FAQs</a>
+                <a href="contact.html" class="nav-link btn btn-primary"
+                    style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO & SEARCH -->
+        <section class="hero">
+            <div class="container">
+                <h1>Frequently Asked Questions</h1>
+                <p>Clear, honest answers for Indian students & parents. Can't find what you're looking for? Ask our
+                    counselors directly.</p>
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="faqSearch" placeholder="Type a keyword (e.g., NEET, fees, safety, NMC)..."
+                        aria-label="Search FAQs">
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ CONTENT -->
+        <section class="faq-wrapper container">
+            <div id="faqContainer">
+                <!-- General & Eligibility -->
+                <h3 class="category-title">📚 General & Eligibility</h3>
+                <div class="faq-list">
+                    <div class="faq-item" data-category="general">
+                        <button class="faq-question">Is MBBS abroad valid in India?</button>
+                        <div class="faq-answer">
+                            <p><strong>Yes, absolutely.</strong> If the university is listed in the World Directory of
+                                Medical Schools (WDOMS) and recognized by the National Medical Commission (NMC) India,
+                                your degree is 100% valid. All our partner universities comply with these strict norms.
+                                After graduating, you simply need to clear the FMGE/NExT screening test to practice in
+                                India.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="general">
+                        <button class="faq-question">What is the minimum NEET score required?</button>
+                        <div class="faq-answer">
+                            <p>As per current NMC guidelines, <strong>qualifying NEET-UG is mandatory</strong> for all
+                                Indian students pursuing medical degrees abroad, regardless of the country. The cutoff
+                                varies yearly (usually 117+ for General/40th percentile), but we recommend aiming higher
+                                to strengthen your visa and admission profile.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="general">
+                        <button class="faq-question">Is IELTS/TOEFL required?</button>
+                        <div class="faq-answer">
+                            <p><strong>No.</strong> Most NMC-compliant universities in Russia, Kyrgyzstan, Kazakhstan,
+                                and Georgia do not require IELTS or TOEFL. They conduct an online entrance test or
+                                evaluate your 10+2 PCB marks and NEET score to grant admission into the English-medium
+                                track.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="general">
+                        <button class="faq-question">Can I transfer my MBBS course to India later?</button>
+                        <div class="faq-answer">
+                            <p>Currently, NMC regulations <strong>do not permit</strong> transferring from a foreign
+                                medical university to an Indian college after enrollment. Students must complete the
+                                full 6-year program abroad. We advise choosing the right destination upfront rather than
+                                planning for a transfer that isn't legally allowed.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financials -->
+                <h3 class="category-title">💰 Fees & Financials</h3>
+                <div class="faq-list">
+                    <div class="faq-item" data-category="financials">
+                        <button class="faq-question">Do you charge hidden fees or commissions?</button>
+                        <div class="faq-answer">
+                            <p><strong>Absolutely not.</strong> We operate on a transparent, fixed counseling fee. All
+                                tuition, hostel, and government charges are paid directly to official university
+                                portals. We provide itemized invoices for every payment you make. You will never pay an
+                                "agent commission" or "hidden processing charge" through us.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="financials">
+                        <button class="faq-question">What is the Total Cost (Approx.) of studying MBBS abroad?</button>
+                        <div class="faq-answer">
+                            <p>Costs vary by destination, but typically range from <strong>₹18 Lakh to ₹45 Lakh for the
+                                    entire 6-year course</strong> (including tuition, hostel, and living expenses). This
+                                is significantly lower than private medical colleges in India. We provide a detailed,
+                                transparent cost breakdown per university before you decide.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="financials">
+                        <button class="faq-question">Do you assist with education loans?</button>
+                        <div class="faq-answer">
+                            <p><strong>Yes.</strong> While most universities offer affordable fee structures, we partner
+                                with leading Indian banks and NBFCs to facilitate education loans. We help you prepare
+                                the necessary admission letters and fee quotes required for loan sanctioning.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academics & Career -->
+                <h3 class="category-title">🎓 Academics & Career</h3>
+                <div class="faq-list">
+                    <div class="faq-item" data-category="academics">
+                        <button class="faq-question">Is the medium of instruction in English?</button>
+                        <div class="faq-answer">
+                            <p><strong>Yes.</strong> All our recommended universities offer a dedicated English-medium
+                                track for international students. Local language classes (Russian/Kazakh/Georgian) are
+                                provided from Year 2 onwards to help you communicate with patients during clinical
+                                rotations and daily life.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="academics">
+                        <button class="faq-question">What if I don't clear FMGE/NExT after returning?</button>
+                        <div class="faq-answer">
+                            <p>FMGE/NExT is mandatory for licensing in India. The pass rate historically ranges between
+                                20-35%. We provide <strong>integrated coaching resources, mock tests, and
+                                    mentorship</strong> during your final year to prepare you proactively. Many students
+                                also pursue postgraduate (PG) seats abroad or in other countries if they plan to
+                                practice internationally.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Safety & Accommodation -->
+                <h3 class="category-title">🏠 Safety & Accommodation</h3>
+                <div class="faq-list">
+                    <div class="faq-item" data-category="safety">
+                        <button class="faq-question">How is safety and accommodation handled?</button>
+                        <div class="faq-answer">
+                            <p>Universities provide secure, Indian-friendly hostels with kitchen facilities for Indian
+                                food options. We assign a <strong>local Indian coordinator</strong> in every city, share
+                                24/7 emergency contacts, and conduct monthly check-ins. CCTV security, biometric access,
+                                and campus patrols are standard across all partner institutions.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" data-category="safety">
+                        <button class="faq-question">Do I need to cook my own food?</button>
+                        <div class="faq-answer">
+                            <p>Hostels typically come with shared kitchens where students can cook. Most universities
+                                also have affordable on-campus cafeterias and nearby Indian messes. Your coordinator
+                                will help you locate grocery stores and reliable local food suppliers upon arrival.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="no-results hidden" id="noResults">No matching questions found. Try different keywords or <a
+                        href="contact.html" style="color: var(--accent); font-weight: 600;">contact our team</a>.</p>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta">
+            <div class="container">
+                <h2>Still Have Questions?</h2>
+                <p>Our certified counselors are available Monday–Saturday, 9 AM to 7 PM IST to give you personalized,
+                    transparent guidance.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-outline"
+                        style="background: var(--white); color: var(--primary); border-color: var(--white);">Submit an
+                        Inquiry</a>
+                    <a href="https://wa.me/919876543210" class="btn btn-whatsapp" target="_blank" rel="noopener">💬 Chat
+                        on WhatsApp</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container grid footer-grid">
+            <div class="footer-col">
+                <h4>Way to Abroad</h4>
+                <p>Trusted by 10,000+ Indian students for transparent, NMC-compliant MBBS admissions abroad. Ethical
+                    guidance, zero hidden fees.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="gallery.html">Student Gallery</a></li>
+                    <li><a href="gallery.html#testimonials">Testimonials</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Top Destinations</h4>
+                <ul>
+                    <li><a href="/countries/russia.html">Russia MBBS</a></li>
+                    <li><a href="/countries/kyrgyzstan.html">Kyrgyzstan MBBS</a></li>
+                    <li><a href="/countries/kazakhstan.html">Kazakhstan MBBS</a></li>
+                    <li><a href="/countries/georgia.html">Georgia MBBS</a></li>
+                    <li><a href="/countries/belarus.html">Belarus MBBS</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal & Policies</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="#">NMC Compliance Notice</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <div class="footer-links">
+                <a href="#">Disclaimer</a>
+                <a href="#">Sitemap</a>
+                <a href="mailto:support@waytoabroad.com">support@waytoabroad.com</a>
+            </div>
+            <p>© 2026 Way to Abroad. All rights reserved. Not affiliated with any government body. Consult official
+                NMC/WHO portals for university recognition.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+
+        document.querySelectorAll('.nav-menu a:not(.dropdown-btn)').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.textContent = '☰';
+            });
+        });
+
+        dropdowns.forEach(drop => {
+            const btn = drop.querySelector('.dropdown-btn');
+            btn.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    drop.classList.toggle('open');
+                }
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown')) {
+                dropdowns.forEach(d => d.classList.remove('open'));
+            }
+        });
+
+        // FAQ Accordion & Search
+        const faqItems = document.querySelectorAll('.faq-item');
+        const faqSearch = document.getElementById('faqSearch');
+        const noResults = document.getElementById('noResults');
+        const categories = document.querySelectorAll('.category-title');
+
+        faqItems.forEach(item => {
+            const btn = item.querySelector('.faq-question');
+            btn.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                // Close all others
+                faqItems.forEach(other => other.classList.remove('active'));
+                // Toggle current
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // Live Search Filtering
+        faqSearch.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                const match = question.includes(term) || answer.includes(term);
+
+                if (match || term === '') {
+                    item.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+
+            // Show/Hide Categories & No Results Message
+            categories.forEach(cat => {
+                let nextEl = cat.nextElementSibling;
+                let hasVisible = false;
+                while (nextEl && !nextEl.classList.contains('category-title')) {
+                    if (!nextEl.classList.contains('hidden')) hasVisible = true;
+                    nextEl = nextEl.nextElementSibling;
+                }
+                cat.style.display = hasVisible || term === '' ? 'block' : 'none';
+            });
+
+            noResults.classList.toggle('hidden', visibleCount > 0 || term === '');
+        });
+    </script>
+</body>
+
+</html>

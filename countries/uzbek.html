@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uzbekistan MBBS Universities | Way to Abroad</title>
+    <link href="/assets/logo.png" rel="icon" sizes="16x16">
+    <link href="/assets/logo.png" rel="icon" sizes="32x32">
+    <link href="/assets/logo.png" rel="icon" sizes="48x48">
+    <link href="/assets/logo.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="/assets/logo.png" rel="icon" type="image/png" sizes="192x192">
+    <link href="/assets/logo.png" rel="icon" type="image/png" sizes="256x256">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #0056b3;
+            --primary-dark: #003d82;
+            --secondary: #00b894;
+            --text: #2d3436;
+            --text-light: #636e72;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 10px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--bg-light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 80px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 8px;
+            min-width: 180px;
+            padding: 0.5rem 0;
+            z-index: 10;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 0.6rem 1rem;
+            transition: var(--transition);
+        }
+
+        .dropdown-content a:hover {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .country-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #4a90e2 100%);
+            color: var(--white);
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .country-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .country-hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            opacity: 0.9;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1rem;
+            border-radius: 8px;
+            min-width: 120px;
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 1.5rem;
+        }
+
+        /* Universities Grid */
+        .universities-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+        }
+
+        .uni-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .uni-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .uni-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .uni-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .uni-content {
+            padding: 1.25rem;
+        }
+
+        .uni-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+
+        .uni-location {
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .uni-details {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .uni-details li {
+            margin-bottom: 0.4rem;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: var(--transition);
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--primary-dark);
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .btn-white:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #b2bec3;
+            padding: 3rem 1.5rem 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            @media (max-width: 768px) {
+                .dropdown-content {
+                    position: static;
+                    box-shadow: none;
+                    background: var(--bg-light);
+                    margin-left: 1rem;
+
+                    max-height: 200px;
+                    /* LIMIT HEIGHT */
+                    overflow-y: auto;
+                    /* ENABLE SCROLL */
+                }
+            }
+
+            .hero-stats {
+                gap: 1rem;
+            }
+
+            .uni-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- EXACT SAME NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="/assets/logo.png" alt="Way to Abroad Logo">
+            </a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about.html">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#">Countries ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/countries/belarus.html">Belarus</a>
+                        <a href="/countries/russia.html">Russia</a>
+                        <a href="/countries/georgia.html">Georgia</a>
+                        <a href="/countries/kazakhstan.html">Kazakhstan</a>
+                        <a href="/countries/kyrgyzstan.html">Kyrgyzstan</a>
+                        <a href="/countries/uzbek.html">Uzbekistan</a>
+                    </div>
+                </li>
+                <li><a href="/gallery.html">Gallery</a></li>
+                <li><a href="/faq.html">Testimonials</a></li>
+                <li><a href="/faq.html">FAQs</a></li>
+                <li><a href="/contact.html" class="btn-primary">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- COUNTRY HERO -->
+    <section class="country-hero relative text-white">
+
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/fb/78/uzbekistan.jpg?w=1200&h=700&s=1"
+                alt="Moscow Saint Basil Cathedral" class="w-full h-full object-cover">
+
+            <!-- Dark Overlay -->
+            <div class="absolute inset-0 bg-black/60"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-5xl mx-auto px-4 py-20 text-center">
+
+            <h1 class="text-3xl md:text-5xl font-bold mb-4">
+                Study MBBS in Uzbekistan
+            </h1>
+
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 opacity-90">
+                Explore NMC & WHO recognized medical universities with English-medium curriculum, affordable tuition,
+                and proven FMGE/NExT success rates.
+            </p>
+
+            <!-- Stats -->
+            <div class="flex justify-center gap-6 flex-wrap mt-6">
+
+                <div class="bg-white/10 backdrop-blur-md px-6 py-4 rounded-xl border border-white/20">
+                    <strong class="text-xl block">12</strong>
+                    <span class="text-sm opacity-80">Partner Universities</span>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md px-6 py-4 rounded-xl border border-white/20">
+                    <strong class="text-xl block">₹22L–₹45L</strong>
+                    <span class="text-sm opacity-80">Total Cost (Approx.)</span>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md px-6 py-4 rounded-xl border border-white/20">
+                    <strong class="text-xl block">6 Years</strong>
+                    <span class="text-sm opacity-80">Duration</span>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md px-6 py-4 rounded-xl border border-white/20">
+                    <strong class="text-xl block">98%</strong>
+                    <span class="text-sm opacity-80">Admission Success</span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="universities-section">
+        <h2 class="section-title">Top NMC Approved Medical Universities in Uzbekistan</h2>
+
+        <div style="text-align:center; margin-bottom:20px;">
+            <input type="text" id="searchInput" placeholder="🔍 Search university..."
+                style="padding:10px 15px; width:300px; max-width:90%; border-radius:6px; border:1px solid #ccc;">
+        </div>
+
+        <div class="uni-grid"></div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <h2>Ready to Secure Your MBBS Seat in Belarus ?</h2>
+        <p>Get a personalized university shortlist, exact fee breakdown, and scholarship eligibility in 24 hours. Our
+            counselors handle everything from NEET guidance to visa approval.</p>
+        <a href="/contact.html" class="btn-white">Get Free Counseling</a>
+    </section>
+
+    <!-- FOOTER (Exactly as requested) -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Way to Abroad</h4>
+                <p>Trusted by 10,000+ Indian students for transparent, NMC-compliant MBBS admissions abroad.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">About Us</a></li>
+                    <!-- <li><a href="/">Destinations</a></li> -->
+                    <li><a href="/">FAQs</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Top Countries</h4>
+                <ul>
+                    <li><a href="/countries/belarus.html">Belarus MBBS</a></li>
+                    <li><a href="/countries/russia.html">Russia MBBS</a></li>
+                    <li><a href="/countries/georgia.html">Georgia MBBS</a></li>
+                    <li><a href="/countries/kazakhstan.html">Kazakhstan MBBS</a></li>
+                    <li><a href="/countries/kyrgyzstan.html">Kyrgyzstan MBBS</a></li>
+                    <li><a href="/countries/uzbek.html">Uzbekistan MBBS</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <!-- <h4>Legal</h4> -->
+                <ul>
+                    <!-- <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Refund Policy</a></li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom text-center text-sm text-gray-400">
+            © 2026 Way to Abroad. All rights reserved. Not affiliated with any government body.
+            <br class="md:hidden">
+            Built by
+            <a href="https://atlanciaworldwide.com" target="_blank" class="text-red-500 font-medium hover:underline">
+                Atlancia Worldwide
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function (e) {
+            const nav = document.getElementById('navLinks');
+            const btn = document.querySelector('.mobile-menu-btn');
+            if (!nav.contains(e.target) && !btn.contains(e.target)) {
+                nav.classList.remove('active');
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const universities = [
+
+                { name: "Samarkand State Medical University", location: "Samarkand, Uzbekistan", cost: "₹20L - ₹28L" },
+                { name: "Tashkent Medical Academy", location: "Tashkent, Uzbekistan", cost: "₹22L - ₹30L" },
+                { name: "Impuls Medical Institute", location: "Tashkent, Uzbekistan", cost: "₹18L - ₹25L" },
+                { name: "Fergana State University", location: "Fergana, Uzbekistan", cost: "₹18L - ₹24L" },
+                { name: "Bukhara State Medical University", location: "Bukhara, Uzbekistan", cost: "₹20L - ₹28L" },
+                { name: "Andijan State Medical Institute", location: "Andijan, Uzbekistan", cost: "₹20L - ₹27L" },
+                { name: "Central Asian Medical University", location: "Tashkent, Uzbekistan", cost: "₹22L - ₹30L" },
+                { name: "Zarmed University", location: "Tashkent, Uzbekistan", cost: "₹25L - ₹35L" },
+                { name: "Zarmed University (By Apollo Hospital)", location: "Tashkent, Uzbekistan", cost: "₹28L - ₹38L" },
+                { name: "Kokand University (Ganga Ram - Delhi Hospital)", location: "Kokand, Uzbekistan", cost: "₹22L - ₹30L" },
+                { name: "Tashkent State Dental Institute", location: "Tashkent, Uzbekistan", cost: "₹20L - ₹28L" },
+                { name: "Tashkent Pediatric Medical Institute", location: "Tashkent, Uzbekistan", cost: "₹20L - ₹28L" }
+
+            ];
+
+            const grid = document.querySelector(".uni-grid");
+
+            function renderUniversities(list) {
+                grid.innerHTML = "";
+
+                list.forEach(uni => {
+                    const card = `
+        <article class="uni-card">
+            <div class="uni-content">
+                <h3 style="font-weight: bold;">${uni.name}</h3>
+                <p class="uni-location">📍 ${uni.location}</p>
+                <ul class="uni-details">
+                    <li>⏱️ Duration: 6 Years</li>
+                    <li>💰 Total Cost (Approx.): ${uni.cost}</li>
+                    <li>🌐 Medium: English</li>
+                    <li>✅ NMC & WHO Approved</li>
+                </ul>
+                <a href="/contact.html" class="btn-secondary">Enquire Now</a>
+            </div>
+        </article>
+        `;
+                    grid.innerHTML += card;
+                });
+            }
+
+            // Initial render
+            renderUniversities(universities);
+
+            // Search logic
+            const searchInput = document.getElementById("searchInput");
+
+            searchInput.addEventListener("input", function () {
+                const value = this.value.toLowerCase();
+
+                const filtered = universities.filter(uni =>
+                    uni.name.toLowerCase().includes(value) ||
+                    uni.location.toLowerCase().includes(value)
+                );
+
+                renderUniversities(filtered);
+            });
+
+        });
+    </script>
+</body>
+
+</html>

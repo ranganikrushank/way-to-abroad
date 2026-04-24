@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore campus life, facilities, and student testimonials from top medical universities abroad. Real photos and videos from Russia, Kyrgyzstan, Kazakhstan, and more.">
+    <meta name="theme-color" content="#0A2540">
+    <title>Gallery & Testimonials | Way to Abroad</title>
+    <style>
+        /* ================= VARIABLES & RESET ================= */
+        :root {
+            --primary: #0A2540;
+            --primary-light: #1A3A5C;
+            --accent: #007BFF;
+            --accent-hover: #0056b3;
+            --success: #28A745;
+            --warning: #FFC107;
+            --text: #2D3748;
+            --text-light: #64748B;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --border: #E2E8F0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-main: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: inherit;
+        }
+
+        /* ================= UTILITY ================= */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 65ch;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.5rem;
+            font-weight: 600;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            font-size: 1rem;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-center {
+            align-items: center;
+            justify-content: center;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ================= HEADER ================= */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 800;
+            font-size: 1.35rem;
+            color: var(--primary);
+        }
+
+        .logo img {
+            height: 36px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--primary-light);
+            padding: 0.5rem;
+            border-radius: 6px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent);
+            background: #f0f7ff;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .dropdown-btn::after {
+            content: "▼";
+            font-size: 0.65rem;
+            transition: transform 0.2s;
+        }
+
+        .dropdown:hover .dropdown-btn::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            min-width: 180px;
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.6rem 1rem;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--bg-light);
+            color: var(--accent);
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            padding: 0.5rem;
+        }
+
+        /* ================= HERO ================= */
+        .hero {
+            padding: 4rem 0 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            max-width: 65ch;
+            margin: 0 auto;
+        }
+
+        /* ================= FILTER BUTTONS ================= */
+        .filter-container {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .filter-btn {
+            padding: 0.65rem 1.25rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border);
+            color: var(--text);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* ================= GALLERY GRID ================= */
+        .gallery-grid {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--bg-white);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .gallery-item.hidden {
+            display: none;
+        }
+
+        .gallery-item img,
+        .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img,
+        .gallery-item:hover video {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 37, 64, 0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h3 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-overlay p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.9rem;
+        }
+
+        .video-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 0, 0, 0.9);
+            color: white;
+            padding: 0.4rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .play-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        /* ================= LIGHTBOX ================= */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+            animation: zoomIn 0.3s;
+        }
+
+        .lightbox-content img,
+        .lightbox-content iframe {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: var(--radius);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: transform 0.2s;
+        }
+
+        .lightbox-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .lightbox-prev {
+            left: -70px;
+        }
+
+        .lightbox-next {
+            right: -70px;
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            color: white;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* ================= TESTIMONIALS ================= */
+        .testimonials {
+            background: var(--bg-white);
+        }
+
+        .testimonials-grid {
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        }
+
+        .testimonial-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+        }
+
+        .testimonial-info h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-info .meta {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .stars {
+            color: var(--warning);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-text {
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: var(--text);
+            font-style: italic;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 3rem;
+            color: var(--border);
+            opacity: 0.5;
+        }
+
+        /* ================= VIDEO SECTION ================= */
+        .video-showcase {
+            background: var(--bg-light);
+        }
+
+        .video-grid {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+
+        .video-card {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-play-btn {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 37, 64, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .video-card:hover .video-play-btn {
+            background: rgba(10, 37, 64, 0.8);
+        }
+
+        .play-circle {
+            width: 70px;
+            height: 70px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .video-card:hover .play-circle {
+            transform: scale(1.1);
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+        }
+
+        .video-info p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* ================= CTA ================= */
+        .cta {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .cta h2 {
+            font-size: clamp(1.8rem, 4vw, 2.25rem);
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            opacity: 0.85;
+            max-width: 60ch;
+            margin: 0 auto 2rem;
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 992px) {
+            .lightbox-prev {
+                left: 10px;
+            }
+
+            .lightbox-next {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--bg-white);
+                flex-direction: column;
+                padding: 1.5rem;
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                background: transparent;
+                padding-left: 1rem;
+                display: none;
+            }
+
+            .dropdown.open .dropdown-menu {
+                display: block;
+            }
+
+            .hero {
+                padding: 3rem 0;
+            }
+
+            .section {
+                padding: 2.5rem 0;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lightbox-nav {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="/assets/logo.png" alt="Way to Abroad Logo">
+            </a>
+            <button class="mobile-toggle" aria-label="Toggle navigation" id="navToggle">☰</button>
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <div class="dropdown">
+                    <a href="#" class="nav-link dropdown-btn" aria-haspopup="true" aria-expanded="false">Countries</a>
+                    <div class="dropdown-menu" role="menu">
+                        <a href="/countries/belarus.html">Belarus</a>
+                        <a href="/countries/russia.html">Russia</a>
+                        <a href="/countries/georgia.html">Georgia</a>
+                        <a href="/countries/kazakhstan.html">Kazakhstan</a>
+                        <a href="/countries/kyrgyzstan.html">Kyrgyzstan</a>
+                        <a href="/countries/uzbek.html">Uzbekistan</a>
+                    </div>
+                </div>
+                <a href="gallery.html" class="nav-link active">Gallery</a>
+                <a href="gallery.html#testimonials" class="nav-link">Testimonials</a>
+                <a href="faq.html" class="nav-link">FAQs</a>
+                <a href="contact.html" class="nav-link btn btn-primary"
+                    style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container">
+                <h1>Campus & Student Life Gallery</h1>
+                <p>Explore real footage from universities, hostels, cultural events, and student milestones. See what
+                    life is really like studying medicine abroad.</p>
+            </div>
+        </section>
+
+        <!-- GALLERY SECTION -->
+        <section class="section">
+            <div class="container">
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="campus">Campus</button>
+                    <button class="filter-btn" data-filter="hostel">Hostels</button>
+                    <button class="filter-btn" data-filter="events">Events</button>
+                    <button class="filter-btn" data-filter="student-life">Student Life</button>
+                    <button class="filter-btn" data-filter="video">Videos</button>
+                </div>
+
+                <div class="grid gallery-grid" id="galleryGrid">
+                    <!-- Image 1 -->
+                    <div class="gallery-item" data-category="campus" data-type="image"
+                        data-caption="Modern lecture hall at Kazan Federal University, Russia">
+                        <img src="https://images.unsplash.com/photo-1592280771120-3f3f1b836a34?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Kazan University Campus" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Kazan Federal University</h3>
+                            <p>State-of-the-art lecture halls</p>
+                        </div>
+                    </div>
+
+                    <!-- Video 1 -->
+                    <div class="gallery-item" data-category="video" data-type="video"
+                        data-video="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        data-caption="Virtual campus tour of Bishkek International University">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Campus Tour Video" loading="lazy">
+                        <span class="video-badge">▶ Video</span>
+                        <div class="gallery-overlay">
+                            <div class="play-icon">▶</div>
+                            <h3>Campus Virtual Tour</h3>
+                            <p>Bishkek International University</p>
+                        </div>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="gallery-item" data-category="hostel" data-type="image"
+                        data-caption="Comfortable hostel rooms with modern amenities">
+                        <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Student Hostel" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Student Accommodation</h3>
+                            <p>Safe & comfortable living</p>
+                        </div>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="gallery-item" data-category="student-life" data-type="image"
+                        data-caption="Indian students celebrating Diwali in Russia">
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Cultural Event" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Cultural Celebrations</h3>
+                            <p>Diwali festivities abroad</p>
+                        </div>
+                    </div>
+
+                    <!-- Image 4 -->
+                    <div class="gallery-item" data-category="campus" data-type="image"
+                        data-caption="Advanced medical laboratory facilities">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Medical Lab" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Medical Laboratories</h3>
+                            <p>World-class research facilities</p>
+                        </div>
+                    </div>
+
+                    <!-- Video 2 -->
+                    <div class="gallery-item" data-category="video" data-type="video"
+                        data-video="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        data-caption="Student testimonial - Rohan's journey to MBBS in Russia">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Student Testimonial" loading="lazy">
+                        <span class="video-badge">▶ Video</span>
+                        <div class="gallery-overlay">
+                            <div class="play-icon">▶</div>
+                            <h3>Student Success Story</h3>
+                            <p>Rohan's MBBS journey</p>
+                        </div>
+                    </div>
+
+                    <!-- Image 5 -->
+                    <div class="gallery-item" data-category="events" data-type="image"
+                        data-caption="Annual sports meet and cultural festival">
+                        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Sports Event" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Annual Sports Fest</h3>
+                            <p>Inter-university competitions</p>
+                        </div>
+                    </div>
+
+                    <!-- Image 6 -->
+                    <div class="gallery-item" data-category="hostel" data-type="image"
+                        data-caption="Indian mess providing home-style meals">
+                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Indian Mess" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Indian Mess Facility</h3>
+                            <p>Authentic Indian cuisine</p>
+                        </div>
+                    </div>
+
+                    <!-- Image 7 -->
+                    <div class="gallery-item" data-category="student-life" data-type="image"
+                        data-caption="Study groups and collaborative learning">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Study Group" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Collaborative Learning</h3>
+                            <p>Study groups & peer support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIDEO SHOWCASE SECTION -->
+        <section class="section video-showcase">
+            <div class="container">
+                <h2 class="section-title text-center">Featured Videos</h2>
+                <p class="section-subtitle text-center mx-auto">Watch detailed campus tours, student interviews, and
+                    expert guidance sessions.</p>
+
+                <div class="grid video-grid">
+                    <div class="video-card"
+                        onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ', 'Complete Guide to MBBS in Russia 2026')">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="MBBS Russia Guide" loading="lazy">
+                            <div class="video-play-btn">
+                                <div class="play-circle">▶</div>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Complete Guide to MBBS in Russia 2026</h3>
+                            <p>Everything you need to know about admission, fees, and career prospects</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card"
+                        onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ', 'FMGE Preparation Strategy')">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="FMGE Prep" loading="lazy">
+                            <div class="video-play-btn">
+                                <div class="play-circle">▶</div>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>FMGE Preparation Strategy</h3>
+                            <p>How to clear India's licensing exam while studying abroad</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card"
+                        onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ', 'Life in Kyrgyzstan - Student Experience')">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Life in Kyrgyzstan" loading="lazy">
+                            <div class="video-play-btn">
+                                <div class="play-circle">▶</div>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Life in Kyrgyzstan - Student Experience</h3>
+                            <p>Real stories from Indian students studying in Bishkek</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section class="section testimonials" id="testimonials">
+            <div class="container">
+                <h2 class="section-title text-center">Student & Parent Voices</h2>
+                <p class="section-subtitle text-center mx-auto">Real stories from students who trusted us with their
+                    medical dreams and parents who chose us for their children's future.</p>
+
+                <div class="grid testimonials-grid">
+                    <div class="testimonial-card">
+                        <span class="quote-icon">"</span>
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rohan Sharma"
+                                class="testimonial-avatar" loading="lazy">
+                            <div class="testimonial-info">
+                                <h4>Rohan Sharma</h4>
+                                <div class="meta">MBBS Russia • Class of 2024</div>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"MedGlobal handled everything from NEET score guidance to Kazan
+                            admission. The on-ground coordinator helped me settle in within 3 days. FMGE prep started
+                            from Year 1 itself. I cleared FMGE in my first attempt with 245/300!"</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <span class="quote-icon">"</span>
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Mrs. Priya Nair"
+                                class="testimonial-avatar" loading="lazy">
+                            <div class="testimonial-info">
+                                <h4>Mrs. Priya Nair</h4>
+                                <div class="meta">Parent • Daughter in Philippines</div>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"As a parent, I was worried about safety and hidden fees. They
+                            showed us exact university brochures, hosted video calls with current students, and even
+                            arranged a campus visit. Completely transparent process with zero surprises."</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <span class="quote-icon">"</span>
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Aarav Patel"
+                                class="testimonial-avatar" loading="lazy">
+                            <div class="testimonial-info">
+                                <h4>Aarav Patel</h4>
+                                <div class="meta">MBBS Kyrgyzstan • Class of 2023</div>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"I cleared FMGE in my first attempt with 228 marks. The clinical
+                            exposure here combined with their structured mentorship program made all the difference. The
+                            faculty support and study materials were top-notch. Truly life-changing!"</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <span class="quote-icon">"</span>
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sneha Reddy"
+                                class="testimonial-avatar" loading="lazy">
+                            <div class="testimonial-info">
+                                <h4>Sneha Reddy</h4>
+                                <div class="meta">MBBS Kazakhstan • Class of 2025</div>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"From day one, the team made me feel supported. They helped with
+                            visa processing, flight bookings, and even connected me with senior students before I left.
+                            The hostel is safe, food is good, and education quality exceeds expectations."</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <span class="quote-icon">"</span>
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Mr. Rajesh Kumar"
+                                class="testimonial-avatar" loading="lazy">
+                            <div class="testimonial-info">
+                                <h4>Mr. Rajesh Kumar</h4>
+                                <div class="meta">Parent • Son in Georgia</div>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"We compared 5 different consultancies before choosing Way to
+                            Abroad. Their transparency, NMC compliance knowledge, and post-admission support stood out.
+                            My son is thriving in Tbilisi, and we have peace of mind knowing he's in good hands."</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <span class="quote-icon">"</span>
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/women/29.jpg" alt="Kavya Menon"
+                                class="testimonial-avatar" loading="lazy">
+                            <div class="testimonial-info">
+                                <h4>Kavya Menon</h4>
+                                <div class="meta">MBBS Belarus • Class of 2024</div>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"The best decision I made was trusting this team. They didn't just
+                            help with admission - they guided me through every step, from document preparation to
+                            settling in Minsk. The Indian community here is strong, and I never felt alone."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Start Your Medical Journey?</h2>
+                <p>Join 10,000+ students who trusted us for their MBBS abroad admission. Get personalized counseling and
+                    transparent guidance today.</p>
+                <div class="flex-center" style="gap: 1rem; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn btn-outline"
+                        style="background: var(--white); color: var(--primary); border-color: var(--white);">Book Free
+                        Consultation</a>
+                    <a href="https://wa.me/919876543210" class="btn btn-whatsapp" target="_blank" rel="noopener"
+                        style="background: #25D366; color: white; padding: 0.85rem 1.5rem; border-radius: var(--radius); font-weight: 600;">💬
+                        Chat on WhatsApp</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- LIGHTBOX MODAL -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close lightbox">×</button>
+        <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)" aria-label="Previous image">‹</button>
+        <button class="lightbox-nav lightbox-next" onclick="changeImage(1)" aria-label="Next image">›</button>
+        <div class="lightbox-content" id="lightboxContent">
+            <!-- Dynamic content -->
+        </div>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container grid footer-grid">
+            <div class="footer-col">
+                <h4>Way to Abroad</h4>
+                <p>Trusted by 10,000+ Indian students for transparent, NMC-compliant MBBS admissions abroad. Ethical
+                    guidance, zero hidden fees.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="gallery.html">Student Gallery</a></li>
+                    <li><a href="gallery.html#testimonials">Testimonials</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Top Destinations</h4>
+                <ul>
+                    <li><a href="/countries/russia.html">Russia MBBS</a></li>
+                    <li><a href="/countries/kyrgyzstan.html">Kyrgyzstan MBBS</a></li>
+                    <li><a href="/countries/kazakhstan.html">Kazakhstan MBBS</a></li>
+                    <li><a href="/countries/georgia.html">Georgia MBBS</a></li>
+                    <li><a href="/countries/belarus.html">Belarus MBBS</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal & Policies</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="#">NMC Compliance Notice</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <div class="footer-links">
+                <a href="#">Disclaimer</a>
+                <a href="#">Sitemap</a>
+                <a href="mailto:support@waytoabroad.com">support@waytoabroad.com</a>
+            </div>
+            <p>© 2026 Way to Abroad. All rights reserved. Not affiliated with any government body. Consult official
+                NMC/WHO portals for university recognition.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+
+        document.querySelectorAll('.nav-menu a:not(.dropdown-btn)').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.textContent = '☰';
+            });
+        });
+
+        dropdowns.forEach(drop => {
+            const btn = drop.querySelector('.dropdown-btn');
+            btn.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    drop.classList.toggle('open');
+                }
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown')) {
+                dropdowns.forEach(d => d.classList.remove('open'));
+            }
+        });
+
+        // Gallery Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.classList.remove('hidden');
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.classList.add('hidden');
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Lightbox Functionality
+        let currentImageIndex = 0;
+        let visibleItems = [];
+        const lightbox = document.getElementById('lightbox');
+        const lightboxContent = document.getElementById('lightboxContent');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+
+        function updateVisibleItems() {
+            visibleItems = Array.from(galleryItems).filter(item => !item.classList.contains('hidden'));
+        }
+
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                updateVisibleItems();
+                currentImageIndex = visibleItems.indexOf(item);
+                openLightbox(item);
+            });
+        });
+
+        function openLightbox(item) {
+            const type = item.getAttribute('data-type');
+            const caption = item.getAttribute('data-caption');
+
+            lightboxContent.innerHTML = '';
+
+            if (type === 'video') {
+                const videoUrl = item.getAttribute('data-video');
+                const iframe = document.createElement('iframe');
+                iframe.src = videoUrl + '?autoplay=1';
+                iframe.width = '854';
+                iframe.height = '480';
+                iframe.style.border = 'none';
+                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                iframe.setAttribute('allowfullscreen', 'true');
+                lightboxContent.appendChild(iframe);
+            } else {
+                const img = document.createElement('img');
+                img.src = item.querySelector('img').src;
+                img.alt = caption;
+                lightboxContent.appendChild(img);
+            }
+
+            lightboxCaption.textContent = caption;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            lightboxContent.innerHTML = '';
+            document.body.style.overflow = '';
+        }
+
+        function changeImage(direction) {
+            updateVisibleItems();
+            currentImageIndex += direction;
+
+            if (currentImageIndex < 0) currentImageIndex = visibleItems.length - 1;
+            if (currentImageIndex >= visibleItems.length) currentImageIndex = 0;
+
+            openLightbox(visibleItems[currentImageIndex]);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') changeImage(-1);
+            if (e.key === 'ArrowRight') changeImage(1);
+        });
+
+        // Close lightbox on backdrop click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // Video Modal
+        function openVideo(videoUrl, title) {
+            const videoItem = document.createElement('div');
+            videoItem.setAttribute('data-type', 'video');
+            videoItem.setAttribute('data-video', videoUrl);
+            videoItem.setAttribute('data-caption', title);
+            openLightbox(videoItem);
+        }
+
+        // Lazy loading enhancement
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    </script>
+</body>
+
+</html>
