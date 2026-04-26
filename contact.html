@@ -637,6 +637,29 @@
         padding: 3rem 1.25rem;
       }
     }
+
+    .branches-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .branches-grid span {
+      background: #f1f5f9;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      color: #334155;
+      border: 1px solid #e2e8f0;
+      transition: 0.3s;
+    }
+
+    .branches-grid span:hover {
+      background: #0056b3;
+      color: #fff;
+      border-color: #0056b3;
+    }
   </style>
 </head>
 
@@ -699,8 +722,7 @@
               </div>
               <div class="form-group">
                 <label for="email" class="form-label">Email Address *</label>
-                <input type="email" id="email" name="email" class="form-input" placeholder="e.g. rahul@example.com"
-                  required>
+                <input type="email" id="email" name="email" class="form-input" placeholder="e.g. rahul@example.com">
                 <div class="error-msg">Please enter a valid email address.</div>
               </div>
               <div class="form-group">
@@ -719,7 +741,6 @@
                   <option value="Georgia">Georgia</option>
                   <option value="Uzbekistan">Uzbekistan</option>
                   <option value="Belarus">Belarus</option>
-                  <option value="Philippines">Philippines</option>
                   <option value="Other">Other / Not Sure</option>
                 </select>
                 <div class="error-msg">Please select a preferred country.</div>
@@ -773,6 +794,28 @@
                 <h3>Working Hours</h3>
                 <p><strong>Mon - Sat:</strong> 9:00 AM - 7:00 PM IST</p>
                 <p><strong>Sunday:</strong> Closed (Emergency support only)</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon">📍</div>
+              <div>
+                <h3>Our Branches</h3>
+
+                <div class="branches-grid">
+                  <span>Surat</span>
+                  <span>Ankleshwar</span>
+                  <span>Vadodara</span>
+                  <span>Radhanpur</span>
+                  <span>Ahmedabad</span>
+                  <span>Rajkot</span>
+                  <span>Godhra</span>
+                  <span>Dhanera</span>
+                  <span>Bhavnagar</span>
+                  <span>Mumbai</span>
+                  <span>Delhi</span>
+                  <span>Haryana</span>
+                  <span>Chennai</span>
+                </div>
               </div>
             </div>
           </div>
@@ -878,7 +921,8 @@
       </div> -->
       <p>
         © 2026 Way to Abroad. All rights reserved.
-        Built by <a href="https://atlanciaworldwide.com" target="_blank" style="color: #c90000; font-weight: bold;">Atlancia Worldwide</a>
+        Built by <a href="https://atlanciaworldwide.com" target="_blank"
+          style="color: #c90000; font-weight: bold;">Atlancia Worldwide</a>
       </p>
     </div>
   </footer>
@@ -963,13 +1007,24 @@
         submitBtn.disabled = true;
 
         // Simulate API call
-        setTimeout(() => {
-          contactForm.reset();
-          contactForm.style.display = 'none';
-          formSuccess.classList.remove('hidden');
-          submitBtn.textContent = 'Submit Inquiry';
-          submitBtn.disabled = false;
-        }, 1500);
+        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+          from_name: document.getElementById("name").value,
+          from_email: document.getElementById("email").value,
+          phone: document.getElementById("phone").value,
+          country: document.getElementById("country").value,
+          message: document.getElementById("message").value
+        })
+          .then(function (response) {
+            contactForm.reset();
+            contactForm.style.display = 'none';
+            formSuccess.classList.remove('hidden');
+          }, function (error) {
+            alert("❌ Failed to send inquiry. Please try again.");
+          })
+          .finally(() => {
+            submitBtn.textContent = 'Submit Inquiry';
+            submitBtn.disabled = false;
+          });
       }
     });
 
@@ -980,6 +1035,14 @@
         input.nextElementSibling.style.display = 'none';
       });
     });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <script>
+    (function () {
+      emailjs.init("YOUR_PUBLIC_KEY");
+    })();
   </script>
 </body>
 

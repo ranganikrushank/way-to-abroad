@@ -454,6 +454,26 @@
         </div>
     </section>
 
+    <div class="max-w-4xl mx-auto text-center mb-12 px-4">
+
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">About Georgia</h2>
+
+        <p class="text-gray-600 mb-6 leading-relaxed">
+            Georgia has become a rapidly growing destination for MBBS education, offering globally recognized
+            universities with modern infrastructure and English-medium programs. Known for its European-standard
+            education system, the country provides affordable tuition, advanced teaching methodologies, and a
+            student-friendly environment suitable for international medical aspirants.
+        </p>
+
+        <p class="text-gray-600 leading-relaxed">
+            With a strong focus on practical learning and clinical exposure, Georgia ensures students receive globally
+            competitive training. Its safe environment, simplified admission process, and NMC-approved universities make
+            it a preferred choice for Indian students seeking quality medical education and international career
+            opportunities.
+        </p>
+
+    </div>
+
     <!-- UNIVERSITIES GRID -->
     <section class="universities-section">
         <h2 class="section-title">Top NMC Approved Medical Universities in Georgia</h2>
@@ -571,22 +591,79 @@
             function renderUniversities(list) {
                 grid.innerHTML = "";
 
-                list.forEach(uni => {
+                list.forEach((uni, index) => {
+
+                    const badgeColors = [
+                        "bg-teal-100 text-teal-700",
+                        "bg-blue-100 text-blue-700",
+                        "bg-purple-100 text-purple-700",
+                        "bg-red-100 text-red-700"
+                    ];
+
+                    const badgeText = [
+                        "Top Ranked",
+                        "Popular",
+                        "High FMGE",
+                        "Affordable"
+                    ];
+
+                    const color = badgeColors[index % badgeColors.length];
+                    const tag = badgeText[index % badgeText.length];
+
                     const card = `
-        <article class="uni-card">
-            <div class="uni-content">
-                <h3 style="font-weight: bold;">${uni.name}</h3>
-                <p class="uni-location">📍 ${uni.location}</p>
-                <ul class="uni-details">
-                    <li>⏱️ Duration: 6 Years</li>
-                    <li>💰 Total Cost (Approx.): ${uni.cost}</li>
-                    <li>🌐 Medium: English</li>
-                    <li>✅ NMC & WHO Approved</li>
-                </ul>
-                <a href="/contact.html" class="btn-secondary">Enquire Now</a>
+        <div class="group bg-white p-8 rounded-2xl border border-gray-200 shadow-sm 
+                    hover:shadow-xl transition duration-500 hover:-translate-y-2">
+
+            <!-- Header -->
+            <div class="flex justify-between items-start mb-6">
+                <h3 class="text-xl font-semibold text-gray-900">
+                    ${uni.name}
+                </h3>
+                <span class="text-xs ${color} px-3 py-1 rounded-full">
+                    ${tag}
+                </span>
             </div>
-        </article>
+
+            <!-- Details Grid -->
+            <div class="grid grid-cols-2 gap-4 mb-6 text-sm">
+
+                <div class="bg-gray-50 p-3 rounded-lg">
+                    <span class="text-gray-500">Duration</span>
+                    <p class="font-medium text-gray-900">6 Years</p>
+                </div>
+
+                <div class="bg-gray-50 p-3 rounded-lg">
+                    <span class="text-gray-500">Total Cost (Approx.)</span>
+                    <p class="font-medium text-gray-900">${uni.cost}</p>
+                </div>
+
+                <div class="bg-gray-50 p-3 rounded-lg">
+                    <span class="text-gray-500">Medium</span>
+                    <p class="font-medium text-gray-900">English</p>
+                </div>
+
+                <div class="bg-gray-50 p-3 rounded-lg">
+                    <span class="text-gray-500">Approval</span>
+                    <p class="font-medium text-gray-900">NMC, WHO</p>
+                </div>
+
+            </div>
+
+            <!-- Location -->
+            <p class="text-sm text-gray-500 mb-4">
+                📍 ${uni.location}
+            </p>
+
+            <!-- Button -->
+            <a href="/contact.html"
+                class="block text-center bg-teal-600 text-white py-3 rounded-lg font-medium 
+                       hover:bg-teal-700 transition">
+                Enquire Now
+            </a>
+
+        </div>
         `;
+
                     grid.innerHTML += card;
                 });
             }
