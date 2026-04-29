@@ -904,14 +904,14 @@
 
                 <div class="grid gallery-grid" id="galleryGrid">
                     <!-- Image 1 -->
-                    <div class="gallery-item" data-category="campus" data-type="image"
+                    <!-- <div class="gallery-item" data-category="campus" data-type="image"
                         data-caption="Modern lecture hall at Kazan Federal University, Russia">
                         <img src="/assets/gallery/1.JPG" alt="Kazan University Campus" loading="lazy">
                         <div class="gallery-overlay">
                             <h3>Kazan Federal University</h3>
                             <p>State-of-the-art lecture halls</p>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Image 2 -->
                     <div class="gallery-item" data-category="hostel" data-type="image"
@@ -944,7 +944,7 @@
                     </div>
 
                     <!-- Video 2 -->
-                    <div class="gallery-item" data-category="video" data-type="video"
+                    <!-- <div class="gallery-item" data-category="video" data-type="video"
                         data-video="https://www.youtube.com/embed/dQw4w9WgXcQ"
                         data-caption="Student testimonial - Rohan's journey to MBBS in Russia">
                         <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
@@ -955,7 +955,7 @@
                             <h3>Student Success Story</h3>
                             <p>Rohan's MBBS journey</p>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Image 5 -->
                     <div class="gallery-item" data-category="events" data-type="image"
@@ -1150,8 +1150,19 @@
             .video-modal-content {
                 position: relative;
                 width: 90%;
-                max-width: 400px;
-                /* vertical format */
+                max-width: 900px;
+                /* was 400px */
+            }
+
+            .video-badge {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                background: #ff0000;
+                color: white;
+                padding: 4px 8px;
+                font-size: 12px;
+                border-radius: 5px;
             }
 
             .video-modal iframe {
@@ -1171,8 +1182,8 @@
         </style>
 
         <script>
-            // 🔹 ADD YOUR SHORTS HERE (SCALABLE)
-            const shortsData = [
+
+            const videoData = [
                 {
                     id: "BpYVZuPBAZg",
                     title: "Campus Life in Russia",
@@ -1207,34 +1218,110 @@
                     id: "frj-0_9Dk8E",
                     title: "FMGE Tips Quick Guide",
                     desc: "Exam strategy insights"
+                },
+                {
+                    id: "DP7LRYu0u_8",
+                    title: "FMGE Tips Quick Guide",
+                    desc: "Exam strategy insights"
+                },
+
+                // ✅ NORMAL VIDEOS
+                {
+                    id: "ntd1rnX_cSc",
+                    title: "FMGE Tips Quick Guide",
+                    desc: "Exam strategy insights",
+                    type: "video"
+                },
+                {
+                    id: "ggzHM7FT7co",
+                    title: "Medical University Tour",
+                    desc: "Inside look at infrastructure",
+                    type: "video"
+                },
+                {
+                    id: "CZhn0fTaJBU",
+                    title: "FMGE Tips Quick Guide",
+                    desc: "Exam strategy insights",
+                    type: "video"
+                },
+                {
+                    id: "O2GMDckkzUM",
+                    title: "FMGE Tips Quick Guide",
+                    desc: "Exam strategy insights",
+                    type: "video"
+                },
+                {
+                    id: "bCvkQK1crEA",
+                    title: "Medical University Tour",
+                    desc: "Inside look at infrastructure",
+                    type: "video"
+                },
+                {
+                    id: "OJJe5UZ7XUw",
+                    title: "FMGE Tips Quick Guide",
+                    desc: "Exam strategy insights",
+                    type: "video"
+                },
+                {
+                    id: "Mz3R7zQYE1Q",
+                    title: "FMGE Tips Quick Guide",
+                    desc: "Exam strategy insights",
+                    type: "video"
+                },
+                {
+                    id: "B-cbgzflWSE",
+                    title: "Medical University Tour",
+                    desc: "Inside look at infrastructure",
+                    type: "video"
+                },
+                {
+                    id: "rNxKsYKCHr0",
+                    type: "video"
                 }
             ];
 
             // 🔹 RENDER CARDS
             const grid = document.getElementById("shortsGrid");
 
-            shortsData.forEach(video => {
+            videoData.forEach(video => {
+
+                const isShort = video.type === "short";
+
                 const card = `
-        <div class="video-card" onclick="openShort('${video.id}')">
+        <div class="video-card" onclick="openVideoPlayer('${video.id}', '${video.type}')">
+            
             <div class="video-thumbnail">
-                <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg" alt="${video.title}">
+                <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg">
+
                 <div class="video-play-btn">
                     <div class="play-circle">▶</div>
                 </div>
+
+                ${isShort ? '<span class="video-badge">Short</span>' : '<span class="video-badge">Video</span>'}
             </div>
-            <div class="video-info">
-                <h3>${video.title}</h3>
-                <p>${video.desc}</p>
-            </div>
+
         </div>
     `;
+
                 grid.innerHTML += card;
             });
 
             // 🔹 OPEN SHORT (VERTICAL PLAYER)
-            function openShort(id) {
-                document.getElementById("videoModal").style.display = "flex";
-                document.getElementById("videoFrame").src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+            function openVideoPlayer(id, type) {
+
+                const modal = document.getElementById("videoModal");
+                const frame = document.getElementById("videoFrame");
+
+                modal.style.display = "flex";
+
+                // 🔥 DIFFERENCE HERE
+                if (type === "short") {
+                    frame.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+                    frame.style.height = "700px"; // vertical feel
+                } else {
+                    frame.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+                    frame.style.height = "400px"; // normal video
+                }
             }
 
             // 🔹 CLOSE
@@ -1243,113 +1330,6 @@
                 document.getElementById("videoFrame").src = "";
             }
         </script>
-
-        <!-- TESTIMONIALS SECTION -->
-        <section class="section testimonials" id="testimonials">
-            <div class="container">
-                <h2 class="section-title text-center">Student & Parent Voices</h2>
-                <p class="section-subtitle text-center mx-auto">Real stories from students who trusted us with their
-                    medical dreams and parents who chose us for their children's future.</p>
-
-                <div class="grid testimonials-grid">
-                    <div class="testimonial-card">
-                        <span class="quote-icon">"</span>
-                        <div class="testimonial-header">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rohan Sharma"
-                                class="testimonial-avatar" loading="lazy">
-                            <div class="testimonial-info">
-                                <h4>Rohan Sharma</h4>
-                                <div class="meta">MBBS Russia • Class of 2024</div>
-                            </div>
-                        </div>
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"MedGlobal handled everything from NEET score guidance to Kazan
-                            admission. The on-ground coordinator helped me settle in within 3 days. FMGE prep started
-                            from Year 1 itself. I cleared FMGE in my first attempt with 245/300!"</p>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <span class="quote-icon">"</span>
-                        <div class="testimonial-header">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Mrs. Priya Nair"
-                                class="testimonial-avatar" loading="lazy">
-                            <div class="testimonial-info">
-                                <h4>Mrs. Priya Nair</h4>
-                                <div class="meta">Parent • Daughter in Philippines</div>
-                            </div>
-                        </div>
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"As a parent, I was worried about safety and hidden fees. They
-                            showed us exact university brochures, hosted video calls with current students, and even
-                            arranged a campus visit. Completely transparent process with zero surprises."</p>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <span class="quote-icon">"</span>
-                        <div class="testimonial-header">
-                            <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Aarav Patel"
-                                class="testimonial-avatar" loading="lazy">
-                            <div class="testimonial-info">
-                                <h4>Aarav Patel</h4>
-                                <div class="meta">MBBS Kyrgyzstan • Class of 2023</div>
-                            </div>
-                        </div>
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"I cleared FMGE in my first attempt with 228 marks. The clinical
-                            exposure here combined with their structured mentorship program made all the difference. The
-                            faculty support and study materials were top-notch. Truly life-changing!"</p>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <span class="quote-icon">"</span>
-                        <div class="testimonial-header">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sneha Reddy"
-                                class="testimonial-avatar" loading="lazy">
-                            <div class="testimonial-info">
-                                <h4>Sneha Reddy</h4>
-                                <div class="meta">MBBS Kazakhstan • Class of 2025</div>
-                            </div>
-                        </div>
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"From day one, the team made me feel supported. They helped with
-                            visa processing, flight bookings, and even connected me with senior students before I left.
-                            The hostel is safe, food is good, and education quality exceeds expectations."</p>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <span class="quote-icon">"</span>
-                        <div class="testimonial-header">
-                            <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Mr. Rajesh Kumar"
-                                class="testimonial-avatar" loading="lazy">
-                            <div class="testimonial-info">
-                                <h4>Mr. Rajesh Kumar</h4>
-                                <div class="meta">Parent • Son in Georgia</div>
-                            </div>
-                        </div>
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"We compared 5 different consultancies before choosing Way to
-                            Abroad. Their transparency, NMC compliance knowledge, and post-admission support stood out.
-                            My son is thriving in Tbilisi, and we have peace of mind knowing he's in good hands."</p>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <span class="quote-icon">"</span>
-                        <div class="testimonial-header">
-                            <img src="https://randomuser.me/api/portraits/women/29.jpg" alt="Kavya Menon"
-                                class="testimonial-avatar" loading="lazy">
-                            <div class="testimonial-info">
-                                <h4>Kavya Menon</h4>
-                                <div class="meta">MBBS Belarus • Class of 2024</div>
-                            </div>
-                        </div>
-                        <div class="stars">★★★★★</div>
-                        <p class="testimonial-text">"The best decision I made was trusting this team. They didn't just
-                            help with admission - they guided me through every step, from document preparation to
-                            settling in Minsk. The Indian community here is strong, and I never felt alone."</p>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- LIGHTBOX MODAL -->
