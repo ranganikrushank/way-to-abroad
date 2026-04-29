@@ -14,6 +14,8 @@
     <link href="/assets/logo.png" rel="apple-touch-icon" sizes="180x180">
     <link href="/assets/logo.png" rel="icon" type="image/png" sizes="192x192">
     <link href="/assets/logo.png" rel="icon" type="image/png" sizes="256x256">
+
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* ================= VARIABLES & RESET ================= */
         :root {
@@ -669,8 +671,8 @@
             </a>
             <button class="mobile-toggle" aria-label="Toggle navigation" id="navToggle">☰</button>
             <nav class="nav-menu" id="navMenu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="about.html" class="nav-link active">About Us</a>
+                <a href="/" class="nav-link">Home</a>
+                <a href="/about.html" class="nav-link active">About Us</a>
                 <div class="dropdown">
                     <a href="#" class="nav-link dropdown-btn" aria-haspopup="true" aria-expanded="false">Countries</a>
                     <div class="dropdown-menu" role="menu">
@@ -682,10 +684,10 @@
                         <a href="/countries/uzbek.html">Uzbekistan</a>
                     </div>
                 </div>
-                <a href="gallery.html" class="nav-link">Gallery</a>
-                <a href="gallery.html#testimonials" class="nav-link">Testimonials</a>
-                <a href="faq.html" class="nav-link">FAQs</a>
-                <a href="contact.html" class="nav-link btn btn-primary"
+                <a href="/gallery.html" class="nav-link">Gallery</a>
+                <a href="/gallery.html#testimonials" class="nav-link">Testimonials</a>
+                <a href="/faq.html" class="nav-link">FAQs</a>
+                <a href="/contact.html" class="nav-link btn btn-primary"
                     style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">Contact Us</a>
             </nav>
         </div>
@@ -749,8 +751,7 @@
                     </div>
                 </div>
                 <div class="mv-image">
-                    <img src="/assets/about us.png"
-                        alt="Medical students studying abroad">
+                    <img src="/assets/about us.png" alt="Medical students studying abroad">
                 </div>
             </div>
         </section>
@@ -861,41 +862,32 @@
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="gallery.html">Student Gallery</a></li>
-                    <li><a href="gallery.html#testimonials">Testimonials</a></li>
-                    <li><a href="faq.html">FAQs</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/gallery.html">Student Gallery</a></li>
+                    <li><a href="/gallery.html#testimonials">Testimonials</a></li>
+                    <li><a href="/faq.html">FAQs</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Top Destinations</h4>
                 <ul>
-                    <li><a href="/countries/russia.html">Russia MBBS</a></li>
-                    <li><a href="/countries/kyrgyzstan.html">Kyrgyzstan MBBS</a></li>
-                    <li><a href="/countries/kazakhstan.html">Kazakhstan MBBS</a></li>
-                    <li><a href="/countries/georgia.html">Georgia MBBS</a></li>
                     <li><a href="/countries/belarus.html">Belarus MBBS</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Legal & Policies</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Refund Policy</a></li>
-                    <li><a href="#">NMC Compliance Notice</a></li>
+                    <li><a href="/countries/russia.html">Russia MBBS</a></li>
+                    <li><a href="/countries/georgia.html">Georgia MBBS</a></li>
+                    <li><a href="/countries/kazakhstan.html">Kazakhstan MBBS</a></li>
+                    <li><a href="/countries/kyrgyzstan.html">Kyrgyzstan MBBS</a></li>
+                    <li><a href="/countries/uzbek.html">Uzbekistan MBBS</a></li>
                 </ul>
             </div>
         </div>
-        <div class="container footer-bottom">
-            <div class="footer-links">
-                <a href="#">Disclaimer</a>
-                <a href="#">Sitemap</a>
-                <a href="mailto:support@waytoabroad.com">support@waytoabroad.com</a>
-            </div>
-            <p>© 2026 Way to Abroad. All rights reserved. Not affiliated with any government body. Consult official
-                NMC/WHO portals for university recognition.</p>
+        <div class="container mx-auto px-4 mt-8 pt-6 border-t border-gray-800 text-center text-sm">
+            © <span id="year"></span> Way to Abroad. All rights reserved.
+            <br>
+            Built by
+            <a href="https://atlanciaworldwide.com" target="_blank" class="text-red-500 font-bold hover:underline">
+                Atlancia Worldwide
+            </a>
         </div>
     </footer>
 
